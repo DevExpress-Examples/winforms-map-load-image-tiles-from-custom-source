@@ -42,14 +42,9 @@ Namespace CustomProvider
                 End Get
             End Property
 
-            Public Overrides Function GetMapSizeInPixels(ByVal zoomLevel As Double) As MapSize
-                Dim imageSize As Double
-                imageSize = LocalTileSource.CalculateTotalImageSize(zoomLevel)
-                Return New MapSize(imageSize, imageSize)
-            End Function
             Protected Overrides ReadOnly Property BaseSizeInPixels() As Size
                 Get
-                    Return New Size(Convert.ToInt32(LocalTileSource.tileSize * 2), Convert.ToInt32(LocalTileSource.tileSize * 2))
+                    Return New Size(Convert.ToInt32(LocalTileSource.TileSize * 2), Convert.ToInt32(LocalTileSource.TileSize * 2))
                 End Get
             End Property
         End Class
@@ -57,19 +52,25 @@ Namespace CustomProvider
         Public Class LocalTileSource
             Inherits MapTileSourceBase
 
-            Public Const tileSize As Integer = 256
+            Private Const _tileSize1 As Integer = 256
             Public Const maxZoomLevel As Integer = 2
             Private directoryPath As String
 
+            Public Overloads Shared ReadOnly Property TileSize As Integer
+                Get
+                    Return _tileSize1
+                End Get
+            End Property
+
             Friend Shared Function CalculateTotalImageSize(ByVal zoomLevel As Double) As Double
                 If zoomLevel < 1.0 Then
-                    Return zoomLevel * tileSize * 2
+                    Return zoomLevel * TileSize * 2
                 End If
-                Return Math.Pow(2.0, zoomLevel) * tileSize
+                Return Math.Pow(2.0, zoomLevel) * TileSize
             End Function
 
             Public Sub New(ByVal cacheOptionsProvider As ICacheOptionsProvider)
-                MyBase.New(CInt((CalculateTotalImageSize(maxZoomLevel))), CInt((CalculateTotalImageSize(maxZoomLevel))), tileSize, tileSize, cacheOptionsProvider)
+                MyBase.New(CInt((CalculateTotalImageSize(maxZoomLevel))), CInt((CalculateTotalImageSize(maxZoomLevel))), TileSize, TileSize, cacheOptionsProvider)
                 Dim dir As New DirectoryInfo(Directory.GetCurrentDirectory())
                 directoryPath = dir.Parent.Parent.FullName
             End Sub

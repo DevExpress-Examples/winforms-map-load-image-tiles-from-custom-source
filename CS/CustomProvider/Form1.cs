@@ -39,11 +39,6 @@ namespace CustomProvider {
                 }
             }
 
-            public override MapSize GetMapSizeInPixels(double zoomLevel) {
-                double imageSize;
-                imageSize = LocalTileSource.CalculateTotalImageSize(zoomLevel);
-                return new MapSize(imageSize, imageSize);
-            }
             protected override Size BaseSizeInPixels {
                 get { return new Size(Convert.ToInt32(LocalTileSource.tileSize * 2), Convert.ToInt32(LocalTileSource.tileSize * 2)); }
             }
