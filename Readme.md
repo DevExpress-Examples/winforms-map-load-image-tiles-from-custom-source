@@ -6,13 +6,13 @@
 
 # Map for WinForms - Create a Data Provider to Load Image Tiles from a Custom Source
 
-This example shows how to implement a custom image tile provider. To do this, create a [MapDataProviderBase](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.MapDataProviderBase) class descendant and assign it to the [ImageLayer.DataProvider](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.ImageLayer.DataProvider?p=netframework) property.
+This example shows how to implement a custom image tile provider. To do this, create a [`MapDataProviderBase`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.MapDataProviderBase) class descendant and assign it to the [`ImageLayer.DataProvider`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.ImageLayer.DataProvider?p=netframework) property.
 
 ![Resulting map](Images/resulting-map.png)
 
 This example loads image tiles from a local cache. The image tiles are downloaded in advance from a public server with OpenStreetMap tiles. A list of alternative OpenStreetMap image tile providers is available here: [OpenStreetMap: Tile usage policy](https://operations.osmfoundation.org/policies/tiles/).
 
-> **Note:** If you only need to change an URI to the location of OpenStreetMap image tiles, use the [OpenStreetMapDataProvider](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.OpenStreetMapDataProvider) and specify its [TileUriTemplate](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.OpenStreetMapDataProvider.TileUriTemplate) property.
+> **Note:** If you only need to change an URI to the location of OpenStreetMap image tiles, use the [`OpenStreetMapDataProvider`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.OpenStreetMapDataProvider) and specify its [`TileUriTemplate`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.OpenStreetMapDataProvider.TileUriTemplate) property.
 
 ## Files to Look At
 
