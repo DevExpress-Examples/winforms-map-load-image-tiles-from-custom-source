@@ -14,7 +14,7 @@ This example loads image tiles from a local cache. The image tiles are downloade
 
 > **Note:** If you only need to change an URI to the location of OpenStreetMap image tiles, use the [`OpenStreetMapDataProvider`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.OpenStreetMapDataProvider) and specify its [`TileUriTemplate`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraMap.OpenStreetMapDataProvider.TileUriTemplate) property.
 
-## Files to Look At
+## Files to Review
 
 * [Form1.cs](./CS/CustomProvider/Form1.cs) (VB: [Form1.vb](./VB/CustomProvider/Form1.vb))
 
